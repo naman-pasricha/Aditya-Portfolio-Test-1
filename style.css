@@ -969,6 +969,7 @@ button {
 .contact-links-meta {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 1000px;
     border-top: 1.5px solid var(--border-dark);
