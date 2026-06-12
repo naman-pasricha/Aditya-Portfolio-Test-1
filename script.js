@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Cursor scaling hover triggers
         function attachCursorHoverEvents() {
-            const hoverables = document.querySelectorAll('a, button, .AboutIntro-tabs--item, .project-minimal-card, #menu-toggle, #menu-close');
+            const hoverables = document.querySelectorAll('a, button, .AboutIntro-tabs--item, .project-minimal-card, .credential-item, #menu-toggle, #menu-close');
             
             hoverables.forEach(item => {
                 // Remove existing to avoid duplicates if re-attaching
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = e.currentTarget;
             const labelEl = cursorDot.querySelector('.cursor-dot__label');
 
-            if (target.classList.contains('project-minimal-card')) {
+            if (target.classList.contains('project-minimal-card') || target.classList.contains('credential-item')) {
                 labelEl.textContent = 'View';
             } else if (target.id === 'email-cta') {
                 labelEl.textContent = 'Mail';

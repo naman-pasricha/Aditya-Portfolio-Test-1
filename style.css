@@ -426,6 +426,16 @@ button {
     width: 100%;
 }
 
+.landing-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 3.5vw, 24px);
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 800px;
+}
+
 .landing-intro {
     font-size: 15px;
     font-weight: 400;
@@ -435,6 +445,33 @@ button {
     margin-bottom: 40px;
     text-align: center;
 }
+
+.landing-actions {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-minimal-arrow.__primary {
+    background: var(--accent-copper);
+    color: var(--text-dark);
+    padding: 10px 24px;
+    border-radius: 24px;
+    border: 1px solid var(--accent-copper);
+}
+
+.btn-minimal-arrow.__primary:hover {
+    background: transparent;
+    color: var(--accent-mid);
+    border-color: var(--accent-mid);
+}
+
+.btn-minimal-arrow.__primary:hover i {
+    transform: none; /* Override default right-translate for download icon */
+}
+
 
 .btn-minimal-arrow {
     display: inline-flex;
@@ -555,7 +592,7 @@ button {
 }
 
 /* -------------------------------------------------------------
-   Panel Content Styles (Parcours Timeline)
+   Panel Content Styles (Experience Timeline)
 ------------------------------------------------------------- */
 .timeline-minimal {
     display: flex;
@@ -621,12 +658,30 @@ button {
     line-height: 1.6;
 }
 
+.timeline-bullets {
+    color: var(--text-body);
+    font-size: 14.5px;
+    line-height: 1.6;
+    list-style-type: square;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.timeline-bullets li {
+    margin-bottom: 6px;
+}
+
+.timeline-bullets li::marker {
+    color: var(--accent-copper);
+}
+
+
 /* -------------------------------------------------------------
-   Panel Content Styles (Expertises Skills Grid)
+   Panel Content Styles (Core Skills Grid)
 ------------------------------------------------------------- */
 .skills-minimal-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -801,7 +856,7 @@ button {
 ------------------------------------------------------------- */
 .projects-minimal-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 20px;
 }
@@ -865,13 +920,19 @@ button {
 
 .proj-tech-row span {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     text-transform: uppercase;
     color: var(--accent-light);
-    padding: 4px 10px;
-    background: rgba(214, 226, 240, 0.06);
-    border: 1px solid var(--border-dark);
-    border-radius: 4px;
+    padding: 4px 12px;
+    background: rgba(74, 111, 165, 0.1);
+    border: 1px solid var(--border-accent);
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+}
+
+.project-minimal-card:hover .proj-tech-row span {
+    border-color: var(--accent-mid);
+    color: #FFFFFF;
 }
 
 /* -------------------------------------------------------------
@@ -970,6 +1031,92 @@ button {
 
 .btn-ghost:hover {
     background-color: rgba(74, 111, 165, 0.08);
+}
+
+/* -------------------------------------------------------------
+   Credentials & Co-Curriculars Section Styles
+------------------------------------------------------------- */
+.credentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 20px;
+}
+
+.credentials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.credential-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-dark);
+    padding: 24px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.credential-item:hover {
+    border-color: var(--border-accent);
+    background: var(--hover-bg);
+}
+
+.credential-item.highlight {
+    border-left: 4px solid var(--accent-copper);
+    background: rgba(74, 111, 165, 0.04);
+}
+
+.credential-item.highlight:hover {
+    border-left-color: var(--accent-mid);
+    background: rgba(74, 111, 165, 0.08);
+}
+
+.cred-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.cred-authority {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    letter-spacing: 0.05em;
+}
+
+.cred-badge {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--bg-cream);
+    background: var(--accent-copper);
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+}
+
+.credential-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.credential-item p {
+    font-size: 14px;
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .credentials-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
 /* -------------------------------------------------------------
